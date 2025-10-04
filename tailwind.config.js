@@ -5,11 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        mono: ['"Source Code Pro"', 'monospace'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

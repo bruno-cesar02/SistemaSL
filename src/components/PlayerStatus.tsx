@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-// Definimos o "formato" dos dados que este componente espera receber
 interface PlayerData {
   name: string;
   title: string;
@@ -13,23 +12,23 @@ interface PlayerData {
 
 interface PlayerStatusProps {
   playerData: PlayerData;
+  xp: number;
+  xpToNextLevel: number;
 }
 
-export function PlayerStatus({ playerData }: PlayerStatusProps) {
+export function PlayerStatus({ playerData, xp, xpToNextLevel }: PlayerStatusProps) {
+  const xpPercentage = (xp / xpToNextLevel) * 100;
+
   return (
-    // Usamos flexbox para organizar os itens
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
       
-      {/* Seção Esquerda: Nível e Nome */}
       <div>
         <p className="text-gray-400 text-sm">Nível {playerData.level}</p>
         <h3 className="text-2xl font-bold text-white">{playerData.name}</h3>
         <p className="text-yellow-400">{playerData.title}</p>
       </div>
 
-      {/* Seção Direita: Barras de HP e MP */}
       <div className="w-full sm:w-1/2 space-y-3">
-        {/* Barra de HP */}
         <div>
           <div className="flex justify-between text-sm mb-1">
             <span className="font-bold text-red-400">HP</span>
@@ -40,7 +39,6 @@ export function PlayerStatus({ playerData }: PlayerStatusProps) {
           </div>
         </div>
 
-        {/* Barra de MP */}
         <div>
           <div className="flex justify-between text-sm mb-1">
             <span className="font-bold text-blue-400">MP</span>
@@ -48,6 +46,17 @@ export function PlayerStatus({ playerData }: PlayerStatusProps) {
           </div>
           <div className="w-full bg-gray-700 rounded-full h-2.5">
             <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '100%' }}></div>
+          </div>
+        </div>
+        
+        {/* --- BARRA DE XP NOVA --- */}
+        <div>
+          <div className="flex justify-between text-sm mb-1">
+            <span className="font-bold text-yellow-400">XP</span>
+            <span>{xp} / {xpToNextLevel}</span>
+          </div>
+          <div className="w-full bg-gray-700 rounded-full h-2.5">
+            <div className="bg-yellow-500 h-2.5 rounded-full transition-all duration-500" style={{ width: `${xpPercentage}%` }}></div>
           </div>
         </div>
       </div>
