@@ -1,6 +1,5 @@
 // src/components/Inventory.tsx
 
-import React from 'react';
 import { FaCoffee, FaDumbbell } from 'react-icons/fa';
 import { GiRunningShoe } from 'react-icons/gi';
 

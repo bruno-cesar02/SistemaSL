@@ -1,6 +1,5 @@
 // src/components/PlayerStatus.tsx
 
-import React from 'react';
 
 interface PlayerData {
   name: string;

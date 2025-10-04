@@ -1,6 +1,6 @@
 // src/components/DailyQuests.tsx
 
-import React from 'react';
+
 import { FaRegSquare, FaCheckSquare } from 'react-icons/fa';
 
 // Definimos o formato dos dados que o componente recebe
